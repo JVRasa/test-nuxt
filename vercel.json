@@ -11,7 +11,7 @@
   },
   "build": {
     "env": {
-      "DATABASE_URLE": true
+      "DATABASE_URL": true
     }
   }
 }
