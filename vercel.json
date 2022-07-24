@@ -5,13 +5,5 @@
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder"
     }
-  ],
-  "env": {
-    "DATABASE_URL": true
-  },
-  "build": {
-    "env": {
-      "DATABASE_URL": true
-    }
-  }
+  ]
 }
