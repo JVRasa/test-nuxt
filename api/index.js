@@ -16,14 +16,14 @@ app.post(`/foodlog`, async (req, res) => {
     data: {
       meals: req.body.meals,
       symptoms: req.body.symptoms,
-      createdAt: req.body.createdAt,
+      createdAt: new Date(req.body.createdAt),
     },
   })
   res.json(log)
 })
 
 app.get(`/foodlog`, async (req, res) => {
-  const logs = await prisma.foodlog.findMany()
+  const logs = await prisma.foodlog.findMany({ orderBy: { createdAt: 'desc' } })
   res.json(logs)
 })
 
