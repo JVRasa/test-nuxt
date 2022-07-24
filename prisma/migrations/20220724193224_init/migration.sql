@@ -1,8 +1,8 @@
 -- CreateTable
-CREATE TABLE `FoodLog` (
+CREATE TABLE `foodlog` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `meals` MEDIUMTEXT NOT NULL,
-    `symtpoms` MEDIUMTEXT NULL,
+    `symptoms` MEDIUMTEXT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     PRIMARY KEY (`id`)

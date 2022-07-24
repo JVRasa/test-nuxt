@@ -10,9 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model FoodLog {
+model foodlog {
   id        Int      @id @default(autoincrement())
   meals     String   @db.MediumText
-  symtpoms  String?  @db.MediumText
+  symptoms  String?  @db.MediumText
   createdAt DateTime @default(now())
 }
