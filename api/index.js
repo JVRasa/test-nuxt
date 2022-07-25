@@ -6,12 +6,7 @@ const app = express()
 
 app.use(express.json())
 
-export default {
-  path: '/api',
-  handler: app,
-}
-
-app.post(`/foodlog`, async (req, res) => {
+app.post(`/api/foodlog`, async (req, res) => {
   const log = await prisma.foodlog.create({
     data: {
       meals: req.body.meals,
@@ -22,12 +17,12 @@ app.post(`/foodlog`, async (req, res) => {
   res.json(log)
 })
 
-app.get(`/foodlog`, async (req, res) => {
+app.get(`/api/foodlog`, async (req, res) => {
   const logs = await prisma.foodlog.findMany({ orderBy: { createdAt: 'desc' } })
   res.json(logs)
 })
 
-app.get(`/foodlog/:id`, async (req, res) => {
+app.get(`/api/foodlog/:id`, async (req, res) => {
   const { id } = req.params
   const onelog = await prisma.foodlog.findUnique({
     where: { id: parseInt(id, 10) },
@@ -35,10 +30,12 @@ app.get(`/foodlog/:id`, async (req, res) => {
   res.json(onelog)
 })
 
-app.delete(`/foodlog:/id`, async (req, res) => {
+app.delete(`/api/foodlog:/id`, async (req, res) => {
   const { id } = req.params
   const onelog = await prisma.foodlog.delete({
     where: { id: parseInt(id, 10) },
   })
   res.json(onelog)
 })
+
+export default app
