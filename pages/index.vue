@@ -71,7 +71,7 @@ export default {
   },
   methods: {
     handlePost() {
-      axios.post('/api/foodlog', this.foodlog).catch(console.error)
+      axios.post('/api/foodlog', this.foodlog)
       this.foodlog = ''
     },
   },
