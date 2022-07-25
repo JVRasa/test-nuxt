@@ -7,13 +7,10 @@
       <div class="border-b-2 border-brown text-brown">SYMPTOMES</div>
       <div id="meals" name="meals">{{ data.symptoms }}</div>
     </section>
-    <button type="buton">Supprimer</button>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   name: 'LogCard',
   props: {
@@ -36,10 +33,6 @@ export default {
     handleDateFormat() {
       this.day = new Date(this.data.createdAt).toISOString().slice(0, 10)
       return this.day
-    },
-    handleDelete() {
-      const id = this.data.id
-      axios.delete(`/foodlog/${id}`)
     },
   },
 }
